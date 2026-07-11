@@ -68,6 +68,7 @@ if (compareSlider) {
     document.removeEventListener("pointerup", onPointerUp);
   }
   compareSlider.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     dragging = true;
     setComparePct(pctFromClientX(e.clientX));
     document.addEventListener("pointermove", onPointerMove);
