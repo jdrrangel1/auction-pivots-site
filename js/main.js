@@ -40,6 +40,47 @@ document.querySelectorAll(".faq-item").forEach((item) => {
   });
 });
 
+// Before/after compare slider
+const compareSlider = document.getElementById("compareSlider");
+if (compareSlider) {
+  const compareBefore = document.getElementById("compareBefore");
+  const compareHandle = document.getElementById("compareHandle");
+  let dragging = false;
+
+  function setComparePct(pct) {
+    pct = Math.max(0, Math.min(100, pct));
+    compareBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    compareHandle.style.left = pct + "%";
+    compareSlider.setAttribute("aria-valuenow", Math.round(pct));
+  }
+
+  function pctFromClientX(clientX) {
+    const rect = compareSlider.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  function onPointerMove(e) {
+    if (dragging) setComparePct(pctFromClientX(e.clientX));
+  }
+  function onPointerUp() {
+    dragging = false;
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", onPointerUp);
+  }
+  compareSlider.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    setComparePct(pctFromClientX(e.clientX));
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+  });
+
+  compareSlider.addEventListener("keydown", (e) => {
+    const current = parseFloat(compareSlider.getAttribute("aria-valuenow")) || 50;
+    if (e.key === "ArrowLeft") setComparePct(current - 5);
+    if (e.key === "ArrowRight") setComparePct(current + 5);
+  });
+}
+
 // Pricing term tabs (products page): switch visible price in bundle cards
 const tierTabs = document.querySelectorAll(".tier-tab");
 if (tierTabs.length) {

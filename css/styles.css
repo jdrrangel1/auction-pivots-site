@@ -329,6 +329,96 @@ section { padding: 96px 0; }
 @media (max-width: 620px) { .steps { grid-template-columns: 1fr; } }
 
 /* Showcase video */
+/* Before / after compare slider */
+.compare-slider {
+  position: relative;
+  max-width: 980px;
+  margin-inline: auto;
+  aspect-ratio: 1400 / 520;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--navy-800);
+  background: var(--navy-950);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: pan-y;
+}
+.compare-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.compare-layer svg { display: block; width: 100%; height: 100%; }
+.compare-before {
+  clip-path: inset(0 50% 0 0);
+}
+.compare-price-path {
+  fill: none;
+  stroke: var(--cyan-300);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.compare-price-path-plain { stroke: var(--paper-500); }
+
+.compare-badge {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+.compare-badge-green { fill: var(--green-400); }
+.compare-badge-red { fill: var(--red-400); }
+
+.compare-tag {
+  position: absolute;
+  top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+.compare-tag-after { right: 16px; background: var(--cyan-400); color: var(--navy-950); }
+.compare-tag-before { left: 16px; background: var(--navy-800); color: var(--paper-300); border: 1px solid var(--navy-700); }
+
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--paper-100);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.compare-handle-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--paper-100);
+  color: var(--navy-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+.compare-slider:focus-visible { outline: 2px solid var(--cyan-400); outline-offset: 4px; }
+
+@media (max-width: 620px) {
+  .compare-slider { aspect-ratio: 4 / 3; }
+  .compare-tag { font-size: 0.62rem; padding: 4px 9px; }
+  .compare-handle-grip { width: 34px; height: 34px; }
+}
+
 .showcase-frame {
   max-width: 980px;
   margin-inline: auto;
