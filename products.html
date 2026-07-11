@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="css/styles.css">
 <style>
   .pricing-section { padding: 96px 0; }
-  .pricing-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin-inline: auto; }
-  @media (max-width: 860px) { .pricing-cols { grid-template-columns: 1fr; max-width: 420px; } }
+  .pricing-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 700px; margin-inline: auto; }
+  @media (max-width: 620px) { .pricing-cols { grid-template-columns: 1fr; max-width: 420px; } }
 
   .plan-card {
     position: relative;
@@ -29,10 +29,6 @@
     border-color: var(--cyan-400);
     box-shadow: 0 0 0 1px var(--cyan-400), 0 20px 50px -20px rgba(47, 217, 232, 0.35);
   }
-  .plan-card.is-beta {
-    border-color: var(--green-400);
-    box-shadow: 0 0 0 1px var(--green-400), 0 20px 50px -20px rgba(53, 214, 140, 0.25);
-  }
   .plan-tag {
     position: absolute;
     top: -12px; right: 20px;
@@ -44,7 +40,6 @@
     font-weight: 700;
   }
   .plan-tag-cyan { background: var(--cyan-400); color: var(--navy-950); }
-  .plan-tag-green { background: var(--green-400); color: var(--navy-950); }
 
   .plan-name {
     font-family: var(--font-display);
@@ -96,7 +91,6 @@
     flex-shrink: 0;
     margin-top: 1px;
   }
-  .plan-card.is-beta .plan-features li::before { color: var(--green-400); }
   .plan-divider {
     border: none;
     border-top: 1px solid var(--navy-700);
@@ -155,36 +149,6 @@
     padding-top: 2px;
   }
   @media (max-width: 780px) { .course-card { grid-template-columns: 1fr; } }
-
-  /* Beta banner */
-  .beta-banner {
-    background: linear-gradient(135deg, rgba(53, 214, 140, 0.08), rgba(47, 217, 232, 0.06));
-    border: 1px solid var(--green-400);
-    border-radius: 14px;
-    padding: 28px 32px;
-    margin-bottom: 48px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .beta-banner-icon {
-    font-size: 1.6rem;
-    flex-shrink: 0;
-  }
-  .beta-banner h3 {
-    font-size: 1rem;
-    text-transform: none;
-    letter-spacing: 0;
-    color: var(--green-400);
-    margin-bottom: 4px;
-  }
-  .beta-banner p {
-    font-size: 0.9rem;
-    color: var(--paper-300);
-  }
-  @media (max-width: 620px) {
-    .beta-banner { flex-direction: column; text-align: center; }
-  }
 </style>
 </head>
 <body>
@@ -255,14 +219,6 @@
   <section id="pricing" class="alt-bg pricing-section">
     <div class="container">
 
-      <div class="beta-banner">
-        <div class="beta-banner-icon">🧪</div>
-        <div>
-          <h3>Beta pricing — locked in for early adopters</h3>
-          <p>Beta subscribers are grandfathered into current pricing permanently. When beta ends, prices go up for new subscribers — but yours stays the same for as long as you're subscribed.</p>
-        </div>
-      </div>
-
       <div class="section-head">
         <p class="eyebrow">Pricing</p>
         <h2>Pick your plan.</h2>
@@ -270,36 +226,13 @@
 
       <div class="pricing-cols">
 
-        <!-- BETA -->
-        <div class="plan-card is-beta">
-          <span class="plan-tag plan-tag-green">BETA — LIMITED</span>
-          <p class="plan-name">Beta Monthly</p>
-          <div>
-            <p class="plan-price">$29<sup>/mo</sup></p>
-            <p class="plan-price-note">7-day free trial included</p>
-            <p class="plan-price-save">Save 59% vs. post-launch price</p>
-          </div>
-          <hr class="plan-divider">
-          <ul class="plan-features">
-            <li>Full study suite</li>
-            <li>All courses</li>
-            <li>Discord community</li>
-            <li>Chart templates</li>
-            <li>Price locked in forever</li>
-            <li>Early access to new studies</li>
-            <li>Direct input on feature roadmap</li>
-          </ul>
-          <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-ghost btn-block">Start Free Trial</a>
-          <p class="plan-price-note" style="text-align:center">$29/mo for life · cancel anytime</p>
-        </div>
-
         <!-- MONTHLY -->
         <div class="plan-card is-featured">
           <span class="plan-tag plan-tag-cyan">MOST POPULAR</span>
           <p class="plan-name">Monthly</p>
           <div>
-            <p class="plan-price">$50<sup> first mo</sup></p>
-            <p class="plan-price-note">Then $70/mo · 7-day free trial</p>
+            <p class="plan-price">$49<sup>/mo</sup></p>
+            <p class="plan-price-note">7-day free trial included</p>
           </div>
           <hr class="plan-divider">
           <ul class="plan-features">
@@ -311,16 +244,16 @@
             <li>Cancel anytime</li>
           </ul>
           <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-primary btn-block">Start Free Trial</a>
-          <p class="plan-price-note" style="text-align:center">7 days free · then $50 · then $70/mo</p>
+          <p class="plan-price-note" style="text-align:center">7 days free · then $49/mo</p>
         </div>
 
         <!-- LIFETIME -->
         <div class="plan-card">
           <p class="plan-name">Permanent Unlock</p>
           <div>
-            <p class="plan-price">$250</p>
+            <p class="plan-price">$300</p>
             <p class="plan-price-note">One-time payment · yours forever</p>
-            <p class="plan-price-save">Pays for itself in &lt;4 months</p>
+            <p class="plan-price-save">Pays for itself in ~6 months</p>
           </div>
           <hr class="plan-divider">
           <ul class="plan-features">
