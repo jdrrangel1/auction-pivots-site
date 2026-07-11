@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studies &amp; Pricing — Auction Pivots</title>
+<meta name="description" content="Auction Pivots studies, courses, and pricing for Sierra Chart. Monthly subscription or permanent unlock.">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .pricing-section { padding: 96px 0; }
+  .pricing-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin-inline: auto; }
+  @media (max-width: 860px) { .pricing-cols { grid-template-columns: 1fr; max-width: 420px; } }
+
+  .plan-card {
+    position: relative;
+    background: var(--navy-850);
+    border: 1px solid var(--navy-800);
+    border-radius: 14px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .plan-card.is-featured {
+    border-color: var(--cyan-400);
+    box-shadow: 0 0 0 1px var(--cyan-400), 0 20px 50px -20px rgba(47, 217, 232, 0.35);
+  }
+  .plan-card.is-beta {
+    border-color: var(--green-400);
+    box-shadow: 0 0 0 1px var(--green-400), 0 20px 50px -20px rgba(53, 214, 140, 0.25);
+  }
+  .plan-tag {
+    position: absolute;
+    top: -12px; right: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 700;
+  }
+  .plan-tag-cyan { background: var(--cyan-400); color: var(--navy-950); }
+  .plan-tag-green { background: var(--green-400); color: var(--navy-950); }
+
+  .plan-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--paper-100);
+  }
+  .plan-price {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--paper-100);
+    line-height: 1;
+  }
+  .plan-price sup { font-size: 1rem; color: var(--paper-500); font-weight: 400; }
+  .plan-price-note {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--paper-500);
+    margin-top: 4px;
+  }
+  .plan-price-strike {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--paper-500);
+    text-decoration: line-through;
+  }
+  .plan-price-save {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--green-400);
+  }
+  .plan-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--paper-300);
+    flex: 1;
+  }
+  .plan-features li { display: flex; gap: 10px; align-items: flex-start; }
+  .plan-features li::before {
+    content: "✓";
+    color: var(--cyan-400);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .plan-card.is-beta .plan-features li::before { color: var(--green-400); }
+  .plan-divider {
+    border: none;
+    border-top: 1px solid var(--navy-700);
+    margin: 0;
+  }
+
+  /* Course section */
+  .course-card {
+    background: var(--navy-850);
+    border: 1px solid var(--navy-800);
+    border-radius: 14px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+  .course-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--paper-100);
+    margin-bottom: 12px;
+  }
+  .course-card p { color: var(--paper-300); font-size: 0.92rem; margin-bottom: 12px; }
+  .course-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--paper-500);
+    letter-spacing: 0.04em;
+  }
+  .course-lessons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--paper-300);
+  }
+  .course-lessons li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--navy-800);
+  }
+  .course-lessons li:last-child { border-bottom: none; }
+  .lesson-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--cyan-400);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+  @media (max-width: 780px) { .course-card { grid-template-columns: 1fr; } }
+
+  /* Beta banner */
+  .beta-banner {
+    background: linear-gradient(135deg, rgba(53, 214, 140, 0.08), rgba(47, 217, 232, 0.06));
+    border: 1px solid var(--green-400);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .beta-banner-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .beta-banner h3 {
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--green-400);
+    margin-bottom: 4px;
+  }
+  .beta-banner p {
+    font-size: 0.9rem;
+    color: var(--paper-300);
+  }
+  @media (max-width: 620px) {
+    .beta-banner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-mark.svg" alt="">
+      <span class="brand-word">Auction Pivots</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="products.html">Studies</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="https://discord.gg/maz4EEw6V" target="_blank" rel="noopener">Discord</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-primary btn-sm">Get Access</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow">Sierra Chart Studies + Education</p>
+      <h1>Studies &amp; Pricing</h1>
+      <p>Weekly pivot and extension-band studies, course content, Discord community, and ongoing updates — all through one subscription.</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <section id="studies">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What You Get</p>
+        <h2>Everything in one package.</h2>
+        <p>No tiered confusion. Every subscriber gets the full study suite, all courses, and the community.</p>
+      </div>
+      <div class="included">
+        <div class="included-item">
+          <h4>Full Study Suite</h4>
+          <p>Weekly Pivot Core, Extension Bands (X1/X2/X3), Session Open Classifier, Breadth Meter, Mean-Reversion Tracker, and Holiday-Week Auto-Adjust.</p>
+        </div>
+        <div class="included-item">
+          <h4>Chart Templates</h4>
+          <p>Pre-built Sierra Chart layouts with every study configured and ready to go.</p>
+        </div>
+        <div class="included-item">
+          <h4>Course Library</h4>
+          <p>Auction Market Theory foundations, weekly pivot trading, and the mean-reversion playbook.</p>
+        </div>
+        <div class="included-item">
+          <h4>Discord Community</h4>
+          <p>Direct access to the developers, trade discussion, and study update announcements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="alt-bg pricing-section">
+    <div class="container">
+
+      <div class="beta-banner">
+        <div class="beta-banner-icon">🧪</div>
+        <div>
+          <h3>Beta pricing — locked in for early adopters</h3>
+          <p>Beta subscribers are grandfathered into current pricing permanently. When beta ends, prices go up for new subscribers — but yours stays the same for as long as you're subscribed.</p>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h2>Pick your plan.</h2>
+      </div>
+
+      <div class="pricing-cols">
+
+        <!-- BETA -->
+        <div class="plan-card is-beta">
+          <span class="plan-tag plan-tag-green">BETA — LIMITED</span>
+          <p class="plan-name">Beta Monthly</p>
+          <div>
+            <p class="plan-price">$29<sup>/mo</sup></p>
+            <p class="plan-price-note">7-day free trial included</p>
+            <p class="plan-price-save">Save 59% vs. post-launch price</p>
+          </div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Full study suite</li>
+            <li>All courses</li>
+            <li>Discord community</li>
+            <li>Chart templates</li>
+            <li>Price locked in forever</li>
+            <li>Early access to new studies</li>
+            <li>Direct input on feature roadmap</li>
+          </ul>
+          <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-ghost btn-block">Start Free Trial</a>
+          <p class="plan-price-note" style="text-align:center">$29/mo for life · cancel anytime</p>
+        </div>
+
+        <!-- MONTHLY -->
+        <div class="plan-card is-featured">
+          <span class="plan-tag plan-tag-cyan">MOST POPULAR</span>
+          <p class="plan-name">Monthly</p>
+          <div>
+            <p class="plan-price">$50<sup> first mo</sup></p>
+            <p class="plan-price-note">Then $70/mo · 7-day free trial</p>
+          </div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Full study suite</li>
+            <li>All courses</li>
+            <li>Discord community</li>
+            <li>Chart templates</li>
+            <li>All future updates</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-primary btn-block">Start Free Trial</a>
+          <p class="plan-price-note" style="text-align:center">7 days free · then $50 · then $70/mo</p>
+        </div>
+
+        <!-- LIFETIME -->
+        <div class="plan-card">
+          <p class="plan-name">Permanent Unlock</p>
+          <div>
+            <p class="plan-price">$250</p>
+            <p class="plan-price-note">One-time payment · yours forever</p>
+            <p class="plan-price-save">Pays for itself in &lt;4 months</p>
+          </div>
+          <hr class="plan-divider">
+          <ul class="plan-features">
+            <li>Full study suite — forever</li>
+            <li>All courses</li>
+            <li>Discord community</li>
+            <li>Chart templates</li>
+            <li>All future updates — forever</li>
+            <li>Education channel access</li>
+            <li>No recurring payments</li>
+          </ul>
+          <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-ghost btn-block">Buy Permanent Access</a>
+        </div>
+
+      </div>
+
+      <p class="stripe-note" style="text-align:center; margin-top: 20px;">Billed via Whop &middot; cancel anytime &middot; see <a href="terms.html" style="color:var(--paper-300)">Terms</a> &amp; <a href="refund.html" style="color:var(--paper-300)">Refund Policy</a>.</p>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Education</p>
+        <h2>Know the theory, not just the indicator.</h2>
+        <p>Short, focused courses that teach the auction-market-theory ideas behind every study — so you're reading the chart, not just following a line.</p>
+      </div>
+
+      <!-- Course 1 -->
+      <div class="course-card">
+        <div>
+          <h3>Auction Market Theory: Foundations</h3>
+          <p>The mental model behind every study in the suite. Before you learn the indicator, learn why price moves the way it does — and why most "support and resistance" is backwards.</p>
+          <p class="course-meta">6 LESSONS · INCLUDED WITH ALL PLANS</p>
+        </div>
+        <div>
+          <ul class="course-lessons">
+            <li><span class="lesson-num">01</span> What auction market theory actually says (and doesn't)</li>
+            <li><span class="lesson-num">02</span> Value areas, balance, and imbalance — the three states of a market</li>
+            <li><span class="lesson-num">03</span> Why price rotates around value, not price targets</li>
+            <li><span class="lesson-num">04</span> The weekly auction: why the 5-day range is the timeframe that matters</li>
+            <li><span class="lesson-num">05</span> Pivots vs. moving averages vs. VWAP — what each one actually measures</li>
+            <li><span class="lesson-num">06</span> Reading a chart through the auction lens: walkthrough on NQ and ES</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <div>
+          <h3>Trading the Weekly Pivot</h3>
+          <p>How to use the Auction Pivots study suite in a live session. Covers the pivot band, extension bands, open classification, and how to build a session plan around them.</p>
+          <p class="course-meta">5 LESSONS · INCLUDED WITH ALL PLANS</p>
+        </div>
+        <div>
+          <ul class="course-lessons">
+            <li><span class="lesson-num">01</span> Installing the studies and loading the chart template</li>
+            <li><span class="lesson-num">02</span> The pivot band: what WP, WPH, and WPL tell you at a glance</li>
+            <li><span class="lesson-num">03</span> Extension bands (X1, X2, X3): where price stalls vs. accelerates</li>
+            <li><span class="lesson-num">04</span> Session open classification: tagging the day before the first trade</li>
+            <li><span class="lesson-num">05</span> Building a session plan: decision tree from open to close</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <div>
+          <h3>The Mean-Reversion Playbook</h3>
+          <p>The specific trade pattern the studies are designed around: price extends away from the pivot, and you're watching for the return. When to act, when to wait, and when the thesis is dead.</p>
+          <p class="course-meta">5 LESSONS · INCLUDED WITH ALL PLANS</p>
+        </div>
+        <div>
+          <ul class="course-lessons">
+            <li><span class="lesson-num">01</span> Mean reversion in auction theory: why the pivot pulls price back</li>
+            <li><span class="lesson-num">02</span> Using the reversion tracker: first touch, re-touch, and "no touch" weeks</li>
+            <li><span class="lesson-num">03</span> Trade location: entries at X1/X2 vs. chasing at the pivot</li>
+            <li><span class="lesson-num">04</span> Holiday and low-volume weeks: when the bands lie</li>
+            <li><span class="lesson-num">05</span> Putting it together: 10 annotated trade examples on NQ and ES</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-band">
+        <h2>Start reading the auction, not guessing at levels.</h2>
+        <p>7-day free trial. Full study suite, courses, and Discord from day one.</p>
+        <div class="hero-actions">
+          <a href="https://whop.com/joined/auctionpivots/products/auctionpivots-order-flow-indicator/" class="btn btn-primary">Start Free Trial</a>
+          <a href="https://discord.gg/maz4EEw6V" target="_blank" rel="noopener" class="btn btn-ghost">Join the Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="assets/logo-mark.svg" alt="">
+          <span class="brand-word">Auction Pivots</span>
+        </a>
+        <p>Weekly pivot and extension-band studies for Sierra Chart, grounded in auction market theory.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="products.html">Studies</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/maz4EEw6V" target="_blank" rel="noopener">Discord</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Auction Pivots. Not investment advice — for educational use only.</span>
+      <span>Sierra Chart is a trademark of Sierra Chart Inc. Auction Pivots is not affiliated with Sierra Chart Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="apLogoTitle">
+  <title id="apLogoTitle">Auction Pivots</title>
+  <defs>
+    <linearGradient id="apRedLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0453c"/>
+      <stop offset="1" stop-color="#c9211a"/>
+    </linearGradient>
+    <linearGradient id="apRedDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a81a15"/>
+      <stop offset="1" stop-color="#7c130f"/>
+    </linearGradient>
+    <linearGradient id="apBlueLight" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f6fe0"/>
+      <stop offset="1" stop-color="#1c4fb8"/>
+    </linearGradient>
+    <linearGradient id="apBlueDark" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#173f92"/>
+      <stop offset="1" stop-color="#122f70"/>
+    </linearGradient>
+    <linearGradient id="apCyanLight" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#6fe9ef"/>
+      <stop offset="1" stop-color="#2fd0da"/>
+    </linearGradient>
+    <linearGradient id="apCyanDark" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#25b9c4"/>
+      <stop offset="1" stop-color="#1a8f98"/>
+    </linearGradient>
+  </defs>
+
+  <!-- left arm (red), split into two facets -->
+  <polygon points="120,210 48,55 67,55" fill="url(#apRedDark)"/>
+  <polygon points="120,210 67,55 86,55" fill="url(#apRedLight)"/>
+
+  <!-- shaft (blue), split into two facets -->
+  <polygon points="100,200 132,200 178,90 146,90" fill="url(#apBlueDark)" transform="translate(0,0)"/>
+  <polygon points="100,200 178,90 146,90" fill="url(#apBlueDark)"/>
+  <polygon points="100,200 132,200 178,90" fill="url(#apBlueLight)"/>
+
+  <!-- arrowhead (cyan), split into two facets -->
+  <polygon points="215,40 140,78 168,101" fill="url(#apCyanDark)"/>
+  <polygon points="215,40 168,101 188,108" fill="url(#apCyanLight)"/>
+
+  <!-- negative-space notch where shaft meets arrowhead -->
+  <polygon points="146,90 140,78 122,96" fill="#0b0f1a"/>
+</svg>
