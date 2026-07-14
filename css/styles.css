@@ -703,3 +703,53 @@ section { padding: 96px 0; }
   font-size: 0.78rem;
   color: var(--paper-500);
 }
+
+
+/* ============================================================
+   Research ledger (2026-07 update)
+   ============================================================ */
+.hero-badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.hero-badge {
+  font-family: var(--font-mono); font-size:.72rem; letter-spacing:.08em;
+  color: var(--paper-300); border:1px solid var(--navy-600);
+  padding:6px 12px; border-radius:100px; background:rgba(13,18,32,.65);
+}
+.method-chips { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 22px; }
+.method-chip {
+  font-family: var(--font-mono); font-size:.74rem; color:var(--cyan-300);
+  border:1px dashed var(--navy-600); padding:7px 12px; border-radius:6px;
+}
+.ledger {
+  border:1px solid var(--navy-700); border-radius:14px; overflow:hidden;
+  background: var(--navy-900);
+}
+.ledger-head {
+  padding:14px 20px; background:var(--navy-850);
+  border-bottom:1px solid var(--navy-700);
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--paper-500);
+}
+.ledger-row {
+  display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;
+  gap:14px; align-items:baseline; padding:13px 20px;
+  border-bottom:1px solid var(--navy-800); font-size:.9rem;
+}
+.ledger-row:last-child { border-bottom:none; }
+.ledger-rule { color:var(--paper-100); font-weight:600; }
+.ledger-note { font-family:var(--font-mono); font-size:.78rem; color:var(--paper-500); }
+.stamp {
+  font-family:var(--font-mono); font-size:.7rem; font-weight:700;
+  letter-spacing:.1em; padding:3px 10px; border-radius:4px; white-space:nowrap;
+  justify-self:end;
+}
+.stamp-live { color:var(--green-400); border:1px solid var(--green-400); }
+.stamp-dead { color:var(--red-400); border:1px solid var(--red-700); }
+.disclaimer-box {
+  margin-top:22px; padding:16px 20px; border:1px solid var(--navy-700);
+  border-radius:10px; background:var(--navy-900);
+  font-size:.78rem; color:var(--paper-500); line-height:1.65;
+}
+@media (max-width:680px){
+  .ledger-row { grid-template-columns:1fr auto; }
+  .ledger-note { grid-column:1 / -1; }
+}

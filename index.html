@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Auction Pivots — Weekly Pivot &amp; Extension-Band Studies for Sierra Chart</title>
-<meta name="description" content="Auction Pivots builds weekly pivot and extension-band studies for Sierra Chart, grounded in auction market theory — plus the education to trade them.">
+<meta name="description" content="Weekly pivot and extension-band studies for Sierra Chart — validated on 5+ years of NQ and ES tick data, with the full research published, including what failed.">
 <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,7 @@
     <nav>
       <ul class="nav-links">
         <li><a href="products.html">Studies</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="products.html#courses">Courses</a></li>
         <li><a href="products.html#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -49,12 +50,18 @@
 
     <div class="container hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow">Sierra Chart Studies &middot; Auction Market Theory</p>
+        <p class="eyebrow">Sierra Chart Studies &middot; Tested, Not Promised</p>
         <h1>Auction theory,<br><span>priced in bands.</span></h1>
-        <p class="hero-sub">Weekly pivot and extension-band studies for Sierra Chart, built on real auction market theory — plus the education to actually trade them. Know which zone price is in before it gets there.</p>
+        <p class="hero-sub">Weekly pivot and extension-band studies for Sierra Chart — with the playbook replayed against 5&frac12; years of real NQ &amp; ES tick data, and the full results published. Including the setups that failed.</p>
         <div class="hero-actions">
           <a href="products.html" class="btn btn-primary">View Studies</a>
-          <a href="https://discord.gg/maz4EEw6V" target="_blank" rel="noopener" class="btn btn-ghost">Join the Discord</a>
+          <a href="#research" class="btn btn-ghost">Read the Research</a>
+        </div>
+        <div class="hero-badges" aria-label="Research summary">
+          <span class="hero-badge">293 weeks of tick data</span>
+          <span class="hero-badge">~40 rules tested &middot; 5 survived</span>
+          <span class="hero-badge">control-validated</span>
+          <span class="hero-badge">failures published</span>
         </div>
       </div>
     </div>
@@ -76,19 +83,101 @@
         </div>
         <div class="step">
           <div class="step-num">02</div>
-          <h3>Extension Bands</h3>
-          <p>Three tiers above and below the pivot band (X1, X2, X3) mark where price historically stalls or accelerates.</p>
+          <h3>Extension Targets</h3>
+          <p>Three tiers above and below the pivot band (X1, X2, X3) act as measured targets and stop anchors. Our testing was blunt: they're objectives, not reversal zones.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <h3>Open Classification</h3>
-          <p>The moment a session opens, it's auto-tagged against the band stack — ABOVE_X2H, BELOW_WPL, and so on.</p>
+          <p>Where the week opens against the band stack sets its regime — the single condition our backtests found the edge lives in.</p>
         </div>
         <div class="step">
           <div class="step-num">04</div>
-          <h3>Mean-Reversion Tracking</h3>
-          <p>See whether price has already touched back to the pivot this week, and when — before you take the next trade.</p>
+          <h3>The Playbook HUD</h3>
+          <p>A living readout: classifies the week at the open, arms the validated plays with entry, target, and stop, tracks them live, and audits its own hit rate as you trade.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH LEDGER -->
+  <section id="research">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The Research</p>
+        <h2>We tested it. Including the parts that failed.</h2>
+        <p>Roughly forty rules replayed bar-by-bar against 5&frac12; years of real NQ &amp; ES tick data. Five survived. The rest are printed below — because a backtest you never see failing isn't evidence.</p>
+      </div>
+
+      <div class="method-chips" aria-label="Methodology">
+        <span class="method-chip">293 weeks &middot; Nov 2020&ndash;Jul 2026</span>
+        <span class="method-chip">must beat a blind-entry control</span>
+        <span class="method-chip">must work on NQ and ES — or it dies</span>
+        <span class="method-chip">ambiguous bars scored as losses</span>
+        <span class="method-chip">fixed entry / stop / target — no curve fitting exits</span>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-head">Validation ledger — every rule, its record, its verdict</div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Buy the below-value weekly open, target the pivot</span>
+          <span class="ledger-note">59&ndash;61% &middot; both instruments &middot; beat control</span>
+          <span class="stamp stamp-live">SURVIVED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Buy the dip to the pivot in above-value weeks</span>
+          <span class="ledger-note">57&ndash;63% &middot; both instruments</span>
+          <span class="stamp stamp-live">SURVIVED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Buy the lower band in above-value weeks</span>
+          <span class="ledger-note">82&ndash;85% &middot; highest win rate in the suite</span>
+          <span class="stamp stamp-live">SURVIVED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Short the rally to the upper band in below-value weeks</span>
+          <span class="ledger-note">71&ndash;78% &middot; small target, take profit fast</span>
+          <span class="stamp stamp-live">SURVIVED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Session-stack breakout with a 2:1 bracket</span>
+          <span class="ledger-note">43% win &middot; 500+ trades per instrument &middot; profitable long and short</span>
+          <span class="stamp stamp-live">SURVIVED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Fading the extensions — X1, X2 or X3, any variant</span>
+          <span class="ledger-note">negative in every configuration tested</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Trading weeks that open inside the bands</span>
+          <span class="ledger-note">all 14 scenarios failed &middot; both instruments</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Shorting above-value weeks</span>
+          <span class="ledger-note">an open above value reads as demand, not exhaustion</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Breakeven stops and active trade management</span>
+          <span class="ledger-note">fixed brackets beat every management rule tested</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Waiting for the pullback after a breakout</span>
+          <span class="ledger-note">the best breaks never pull back — filter selects the failures</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+        <div class="ledger-row">
+          <span class="ledger-rule">Trading suspect weeks (holiday / roll / thin data)</span>
+          <span class="ledger-note">compressed ladders sweep every level &mdash; flagged on the HUD instead</span>
+          <span class="stamp stamp-dead">REJECTED</span>
+        </div>
+      </div>
+
+      <div class="disclaimer-box">
+        <strong>How to read these numbers.</strong> All statistics are historical frequencies from backtested simulations on NQ and ES tick data (Nov&nbsp;2020&ndash;Jul&nbsp;2026) using fixed, mechanical rules. Results are hypothetical: they do not include commissions or slippage, the test period was predominantly a rising market, and sample sizes on weekly setups are modest (roughly 25&ndash;60 trades each). Hypothetical performance has inherent limitations and no representation is made that any account will achieve similar results. Past performance is not indicative of future results. Nothing on this site is investment advice.
       </div>
     </div>
   </section>
@@ -150,22 +239,30 @@
         <div class="card">
           <h3>Weekly Auction Pivot</h3>
           <ul class="card-list">
-            <li>Weekly pivot with high/low band and extension bands</li>
-            <li>Range health check (flags thin weeks)</li>
+            <li>Weekly pivot with high/low band and extension targets</li>
+            <li>Health monitor flags SUSPECT weeks (holiday, roll, thin data) before you trust the levels</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Living Playbook HUD</h3>
+          <ul class="card-list">
+            <li>Weekly verdict at the open — validated plays armed with entry, target &amp; stop</li>
+            <li>Tracks fills and outcomes live, keeps a rolling win-rate record on your own chart</li>
+            <li>Statistical drift alarm warns if the live edge falls below its tested range</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Session Delta Stack</h3>
+          <ul class="card-list">
+            <li>Daily session-stack box with the breakout bracket printed on-chart: entry, target, stop</li>
+            <li>Overlay mode — compute on your data chart, trade from your execution chart</li>
           </ul>
         </div>
         <div class="card">
           <h3>Monthly Auction Pivot</h3>
           <ul class="card-list">
-            <li>Monthly pivot with band and extension levels</li>
+            <li>Monthly pivot with band and extension levels for higher-timeframe context</li>
             <li>Historical month dimming</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Fully Customizable HUD</h3>
-          <ul class="card-list">
-            <li>On-chart bias HUD, position &amp; color control</li>
-            <li>Reference-chart overlay</li>
           </ul>
         </div>
       </div>
@@ -283,7 +380,15 @@
         </div>
         <div class="faq-item" data-open="false">
           <button class="faq-q" aria-expanded="false">What happens on holiday weeks? <span class="icon">+</span></button>
-          <div class="faq-a"><div class="faq-a-inner">The Full Suite auto-detects short/holiday weeks and adjusts the pivot calculation so a shortened week doesn't distort the bands.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">The health monitor flags them. Holiday and contract-roll weeks produce compressed, unreliable levels — our testing showed those ladders get swept nearly 100% of the time regardless of direction. Rather than silently adjusting, the HUD marks the week SUSPECT in red so you know the levels are reference-only before you trade them.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Where do the statistics on this site come from? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Every number comes from replaying fixed, mechanical rules bar-by-bar against 293 weeks of real NQ and ES tick data (Nov 2020&ndash;Jul 2026). Rules had to beat a blind-entry control and work on both instruments to survive, and ambiguous bars were scored as losses. They are historical frequencies from a specific period — not predictions and not guarantees. Full methodology and limitations are in the Research section.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Why publish the setups that failed? <span class="icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Because survivors only mean something next to the graveyard. Anyone can show five setups that backtested well; showing the thirty-five that didn't is what makes the five credible — and it stops you from trading the ideas the data already rejected.</div></div>
         </div>
         <div class="faq-item" data-open="false">
           <button class="faq-q" aria-expanded="false">Is there a refund policy? <span class="icon">+</span></button>
@@ -297,8 +402,8 @@
   <section>
     <div class="container">
       <div class="cta-band">
-        <h2>Start reading the auction, not guessing at levels.</h2>
-        <p>Full catalog, bundle pricing, and course details are all on one page.</p>
+        <h2>Trade the playbook that survived testing.</h2>
+        <p>Five validated setups, a HUD that keeps score on itself, and the full research — failures included — published above.</p>
         <div class="hero-actions">
           <a href="products.html" class="btn btn-primary">View Studies &amp; Pricing</a>
         </div>
@@ -343,7 +448,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Auction Pivots. Not investment advice — for educational use only.</span>
+      <span>&copy; 2026 Auction Pivots. Not investment advice — for educational use only. All statistics are hypothetical backtested results; past performance is not indicative of future results.</span>
       <span>Sierra Chart is a trademark of Sierra Chart Inc. Auction Pivots is not affiliated with Sierra Chart Inc.</span>
     </div>
   </div>
